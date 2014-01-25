@@ -70,16 +70,26 @@ a:hover {
 
 .stage {
 
-	min-height: 75%;
-	height: 90%;
+	margin: 100px auto;
+	text-align: center;
+
+	font-size: x-large;
 }
 
-.homebuttons {
+.commits {	
 
-	text-align: center;		
+	height: 400px;
+	overflow: hidden;
 }
 
-.homebuttons a {
+.commits li {
 
-	margin-left: 4%;
+	font-size: large;
+	padding: 10px;
+}
+
+.commit:first-child {
+
+	font-size: x-large;
+	padding: 20px;
 }

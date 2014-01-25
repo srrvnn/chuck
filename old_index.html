@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title> Who's hacking? </title>
+
+	<!-- METADATA -->
+
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">          
+	<meta name="description" content="Get the answer to who's hacking, as they do.">
+	<meta name="keywords" content="hackathon commits who's hacking">
+	<meta name="author" content="Saravanan Ganesh, srrvnn@live.com">
+	<meta charset="UTF-8">
+
+	<link rel="shortcut icon" HREF="images/icons/favicon.png">
+
+	<!-- BOOTSTRAP -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- STYLE SHEETS -->
+	<link href="css/reset.css" rel="stylesheet" type="text/css" />    
+	<link href="css/style.css" rel="stylesheet" type="text/css" />     
+
+	<!-- FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>    
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+	<div class="starter" style="height: 1%; background: #505050"> 
+
+	</div>  
+
+	<div class="container">
+
+		<div class="row stage">
+
+			<ul class="commits"> 
+
+				<li class="commit"> Default Commit Message - 0000 </li>
+				<li class="commit"> Default Commit Message - 0001 </li>				
+
+			</ul>
+
+		</div>		
+
+	</div>
+
+	<!-- jQUERY -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- SHOW COMMIT MESSAGES ON STAGE -->
+	<script type="text/javascript"> 
+
+		$(document).ready(function() {
+
+			fadeInSequence();
+
+		});
+
+		function fadeInSequence($three) {
+
+			// default to the first list item
+			if ($three == null) $three = $('.commits>li:lt(1)');
+			else $three.last().prevAll().remove();
+
+			// fade in the item found
+			$three.each(function (i) {
+
+			    $(this).delay(i * 600).fadeIn(1000,function () {
+
+			        if ($three.length-1 == i) $three.fadeOut(1000);		        
+			    });
+
+			}).promise().done(function () {				
+
+			    if ($three.last().nextAll(':lt(1)').length) {
+
+			        // Same function, next 3 items
+			        fadeInSequence($three.last().nextAll(':lt(1)'));
+
+			    } else {
+
+			        // if no commit elements are left, show a message
+			        // TODO check the list in some time for elements
+
+			        $('.commits').append('<p> What y\'all hackers doing? Push it up!</p>');		        
+			    }
+			});
+
+		}
+
+	</script>
+
+	<!-- CLIENT SIDE COMMIT GENERATION BOT 1 -->
+	<script type="text/javascript">
+
+		function padWithZeros(number, length) {
+
+			str_number = number.toString();
+			return str_number.length < length ? padWithZeros("0" + str_number, length) : str_number;
+		}
+
+		$(document).ready(function() {			
+
+			var counter1 = 0000; 
+
+			setInterval(function() {
+
+				$('.commits').append('<li class="commit"> Client Side Commit Message '+ padWithZeros(counter1, 4) +' from BOT 1</li>')
+
+				counter1++;
+
+			}, 1 * 10);
+
+			var counter2 = 0000; 
+
+			setInterval(function() {
+
+				$('.commits').append('<li class="commit"> Client Side Commit Message '+ padWithZeros(counter2, 4) +' from BOT 2</li>')
+
+				counter2++;
+
+			}, 1 * 100);
+
+		});           
+
+		
+
+	</script> 	
+
+	<!-- SERVER SIDE COMMIT GENERATION -->
+	<script type="text/javascript">
+
+	</script>
+
+
+	<!-- GOOGLE ANALYTICS SCRIPT --> 
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-39551189-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+
+</body>
+
+</html>
