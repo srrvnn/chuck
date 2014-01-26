@@ -84,13 +84,13 @@
 
 			</div>
 
-		<div class="container pins" style="text-align:center; padding-top: 60px;">		
+		<div class="container pins" style="text-align:center; padding-top: 60px;">
 
 			<div class="loading">
 
-			<img src="images/294.GIF" style="padding-top: 20px"/>
+				<img src="images/294.GIF" style="padding-top: 20px"/>
 
-			</div>
+				</div>
 
 			<!-- <div class="pin"> 
 
@@ -104,6 +104,8 @@
 				<td style="vertical-align: top; padding-top: 10px;"> 
 					<span style="font-size: 12px; margin-top: 10px;"> Saravanan Ganesh </span> <br/> 
 					<span style="font-size: 11px; margin-top: 10px"> Inspirational and Motivational </span> </td>
+
+				<td rowspan="2" style="vertical-align: middle"> <span style="background: #ccc; border-radius: 30px; padding: 8px; margin-left: 15px"> 70% </span> </td> 
 
 				</tr> </table> </p>
 
@@ -226,11 +228,13 @@
 
 				</tr> </table> </p>
 
-			</div>			
+			</div>			 -->
 
-			</div>  
+			</div> 
 
-	</div>
+		</div>
+
+	</div>		
 
 	<div id="footer">
 
@@ -247,13 +251,11 @@
 	<script src="js/bootstrap.min.js"></script>
 
 	<!-- COMPUTE INTERESTING PINS -->
-	<script type="text/javascript">
+	<script type="text/javascript">		
 
-		
+		setTimeout(function() {sendAJAXRequest()}, 1000);	// TIMEOUT TO TEST LOADER GIF
 
-		// setTimeout(function() {sendAJAXRequest()}, 5000);	// TIMEOUT TO TEST LOADER GIF
-
-		sendAJAXRequest();
+		// sendAJAXRequest();
 
 		// get the interesting pins and display them on the website			
 
@@ -270,7 +272,7 @@
 
 				for(d in data) {
 
-					$html_pin = '<div class="pin">';
+					$html_pin = '<div class="pin">';					
 					$html_pin += '<img src="' + data[d].image_large_url + '" class="pin-image"/>';
 					$html_pin += '<p class="pin-desc">' + data[d].description + '</p>';
 					$html_pin += '<p class="pin-credit"> <table> <tr>';
@@ -278,10 +280,12 @@
 					$html_pin += '<td style="vertical-align: top; padding-top: 10px;"> '
 					$html_pin += '<span style="font-size: 12px; margin-top: 10px;"> Saravanan Ganesh </span> <br/>'
 					$html_pin += '<span style="font-size: 11px; margin-top: 10px"> Inspirational and Motivational </span> </td>';
+					$html_pin += '<td rowspan="2" style="vertical-align: middle"> <span style="background: #ccc; border-radius: 30px; padding: 8px; margin-left: 15px"> 70% </span> </td>';
 					$html_pin += '</tr> </table> </p> </div';
+					
 				
 					$('.pins').append($html_pin);
-
+					// $('.pins:last-child').show("fast");
 				}	
 			}
 		});
