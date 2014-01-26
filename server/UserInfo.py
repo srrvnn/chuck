@@ -5,7 +5,7 @@ from pymongo import MongoClient
 APP_SECRET = "5e0927fa47bf3e3eab3d171b4db596f9684fa75d"
 APP_ID = "1435808"
 
-def getUserRetailPins(USER_SECRET,user_id):\
+def getUserRetailPins(USER_SECRET,user_id):
     userpins = getUserPins(USER_SECRET,user_id)
     client = pymongo.MongoClient('107.170.247.246', 27017)
     records = client['chuck']['retailers'].find()
