@@ -8,4 +8,8 @@ APP_ID = "1435808"
 def getUserRetailPins(USER_SECRET,user_id):
   my_client = raw_client(APP_ID, APP_SECRET)
   my_client.authorize(USER_SECRET)
-  my_client.users(user_id).pins.get()
+  pins = my_client.users(user_id).pins.get()
+  retail_pins = []
+  for pin in pins:
+    retail_pins.append(pin)
+  return retail_pins
