@@ -68,8 +68,11 @@ a:hover {
 
 /* SPECIFIC ELEMENTS */
 
-#footer a {
+.pin {
+	
+	width: 96%;
+	margin: 5px;
 
-	margin-left: 4%;
-	margin-top: 10px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
 }
