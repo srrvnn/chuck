@@ -1,3 +1,8 @@
+@font-face {
+			font-family: "Royal_Chicken";
+			src: url(fonts/royalchicken.ttf) format("truetype");
+		}
+
 html, body {
 
 	font-family: 'Open Sans', sans-serif;		
@@ -9,7 +14,7 @@ html, body {
 
 .navbar-brand {
 
-	font-style: "Royal_Chicken" !important;
+	font-family: "Royal_Chicken" !important;
 	color: rgb(203,32,39) !important; 
 }
 
