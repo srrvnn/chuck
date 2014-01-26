@@ -12,8 +12,9 @@ def welcome():
     return 'Welcome to Chuck!'
   
 @app.route('/update')
-def welcome():
+def update():
     os.system('git pull')
+    return 'ok'
 
 
 @app.route('/user/me/pins',methods=['GET'])
