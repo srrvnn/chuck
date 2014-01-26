@@ -14,6 +14,7 @@
 	<meta name="description" content="Get your pins to your cart">
 	<meta name="keywords" content="pinterest buying retailers">
 	<meta name="author" content="Saravanan Ganesh, srrvnn@live.com">
+	<meta name="author" content="Pallav Rustogi, pallav.rustogi@gmail.com">
 	<meta charset="UTF-8">
 
 	<link rel="shortcut icon" HREF="images/icons/favicon.png">
@@ -31,6 +32,15 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>    
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+	<style>
+
+		@font-face {
+			font-family: "Royal_Chicken";
+			src: url(http://107.170.247.246/fonts/royalchicken.ttf) format("truetype");
+		}
+
+	</style>
 
 </head>
 
@@ -75,25 +85,46 @@
 			</div>
 
 		<div class="container" style="text-align:center; padding-top: 60px">			
-		
-		<section class="entry">
-			<input type="file" accept="image/*;capture=camera"> 
-			<div class="latest">
-				<div class="menu">
-					<span class="command">save</span>
-				</div>
+
+		<section class="entry">			
+
+			<input type="file" accept="image/*;capture=camera" style="padding-bottom: 10px"> 
+
+			<div class="latest">				
+
 				<img class="pin-image" />
+
 				<div>
+
 					<form id="addinfo" style="display: none; margin-top:10px;">
-						Board      : <input type="text" name="board"><br>
-						Description: <input type="text" name="desc"><br>
-						<input type="submit" value="Pin It">
+
+						
+						<label for="board" class="col-xs-2 control-label" style="padding: 10px; padding-left: 25px;">Board:</label>
+
+						<div class="col-xs-12">
+							<input type="text" class="form-control" id="board" placeholder="To Buy">
+						</div>						
+						
+						<label for="desc" class="col-xs-2 control-label" style="padding: 10px; padding-left: 25px;">Description: </label>
+
+						<div class="col-xs-12">
+							<input type="text-area" class="form-control" id="desc" placeholder="Description">
+						</div>					
+
+						<!-- Board      : <input type="text" name="board"><br>
+						Description: <input type="text" name="desc"><br> -->
+
+						<div class="col-xs-12" style="text-align:left">							
+							<input type="submit" value="Pin It" style="margin: 15px; font-size: 16px">
+						</div>
+
 					</form>
-				</div>
-				</tr> </table> </p>
+
+				</div>				
+
 			</div>
-		</section>
-					
+
+		</section>				
 
 		</div>  
 
@@ -113,7 +144,7 @@
 	<!-- BOOTSTRAP JS -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<!-- COMPUTE INTERESTING PINS -->
+	<!-- CAPTURE A PICTURE -->
 	<script type="text/javascript">
 	
 		/********** CAPTURE  **********/
@@ -123,8 +154,11 @@
 		  $("input").change(function(ev) {
 
 			var reader = new FileReader();
+
 			reader.onload = (function(ev) {
+
 			  $(".latest img").attr("src", ev.target.result).fadeIn();
+
 			});
 
 			var file = this.files[0];
@@ -145,58 +179,6 @@
 			  if ($("img",this).attr("src")) {addPhoto($("img", this).data("name")); $("#addinfo").show();}
 		   });
 		});
-
-
-		// get the interesting pins and display them on the website
-
-		$(document).ready(function() {
-
-			var data; 		
-
-			data = [
-
-				{image_large_url: 'http://techcircle.vccircle.com/wp-content/uploads/2013/05/Pallav-Pandey.jpg'}, 
-				{image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'},
-				{image_large_url: 'http://shirtoid.com/wp-content/uploads/2010/03/interesting.jpg' }, 
-				{image_large_url: 'http://imgs.xkcd.com/comics/interesting_life.png' },
-				{image_large_url: 'http://www.fullhdwpp.com/wp-content/uploads/Interesting-Parallels.jpg' },
-				{image_large_url: 'http://prinyourpajamas.com/wp-content/uploads/2010/12/twitter-sashaw-flickr.jpg' },
-				{image_large_url: 'http://blog.logmycalls.com/Portals/155740/images/interesting-call-tracking.jpeg' },
-				{image_large_url: 'http://robonwriting.com/wp-content/uploads/2013/07/true-and-interesting_50291543a9b43.jpg' }
-
-
-				];			
-
-			for(d in data) {
-
-				$html_pin = '<div class="pin"> <img class="pin-image" src="' + data[d].image_large_url + '" width="90%"/> <p class="pin-desc"> Test Description </p> </div>'
-				// $html_pin = $html_pin + 				
-
-				$('#content').append($html_pin);
-
-			}	
-
-		});
-
-		// $.ajax ({
-
-		// 	type: 'GET',
-		// 	url: '107.170.247.246:5000/user/me/pins', // TODO: get URL from Anirudh
-		// 	data: '', 
-		// 	success: function(data) { 
-
-		// 		data = [{image_large_url: 'http://srrvnn.com/images/github.jpg'}, {image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'}];
-
-		// 		for(d: data){
-
-		// 			$html_pin = '<div class="pin"> <img src="' + data[d].image_large_url + '" width="90%"/> </div>'
-		// 			// $html_pin = $html_pin + 
-
-		// 			$('.pins').append($html_pin);
-
-		// 		}				
-		// 	}              
-		// });
 
 		</script>
 

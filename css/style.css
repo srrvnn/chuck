@@ -7,6 +7,12 @@ html, body {
 
 /* DOCUMENT ELEMENTS */
 
+.navbar-brand {
+
+	font-style: "Royal_Chicken" !important;
+	color: rgb(203,32,39) !important; 
+}
+
 .container {
 
 	/* take up the entire screen */
