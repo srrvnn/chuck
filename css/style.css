@@ -1,6 +1,6 @@
 @font-face {
 			font-family: "Royal_Chicken";
-			src: url(fonts/royalchicken.ttf) format("truetype");
+			src: url(../fonts/royalchicken.ttf) format("truetype");
 		}
 
 html, body {

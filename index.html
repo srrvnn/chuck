@@ -84,7 +84,13 @@
 
 			</div>
 
-		<div class="container pins" style="text-align:center; padding-top: 60px">			
+		<div class="container pins" style="text-align:center; padding-top: 60px;">		
+
+			<div class="loading">
+
+			<img src="images/294.GIF" style="padding-top: 20px"/>
+
+			</div>
 
 			<!-- <div class="pin"> 
 
@@ -220,7 +226,7 @@
 
 				</tr> </table> </p>
 
-			</div> -->			
+			</div>			
 
 			</div>  
 
@@ -243,29 +249,24 @@
 	<!-- COMPUTE INTERESTING PINS -->
 	<script type="text/javascript">
 
-		// get the interesting pins and display them on the website
+		
 
-		// $(document).ready(function() {
+		// setTimeout(function() {sendAJAXRequest()}, 5000);	// TIMEOUT TO TEST LOADER GIF
 
-		// 	var data; 		
+		sendAJAXRequest();
 
-		// 	for(d in data) {
+		// get the interesting pins and display them on the website			
 
-		// 		$html_pin = '<div class="pin"> <img class="pin-image" src="' + data[d].image_large_url + '" width="90%"/> <p class="pin-desc"> Test Description </p> </div>'
-		// 		// $html_pin = $html_pin + 				
-
-		// 		$('#content').append($html_pin);
-
-		// 	}	
-
-		// });
+		function sendAJAXRequest() {
 
 		$.ajax ({
 
 			type: 'GET',
 			url: 'http://107.170.247.246:5000/user/me/pins', // TODO: get URL from Anirudh
 			data: '', 
-			success: function(data) { 				
+			success: function(data) { 	
+
+				$('.loading').hide();
 
 				for(d in data) {
 
@@ -281,9 +282,11 @@
 				
 					$('.pins').append($html_pin);
 
-				}				
-			}              
+				}	
+			}
 		});
+
+		}
 
 		</script>
 
