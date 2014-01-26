@@ -74,9 +74,9 @@
 
 			</div>
 
-		<div class="container" style="text-align:center; padding-top: 60px">			
+		<div class="container pins" style="text-align:center; padding-top: 60px">			
 
-			<div class="pin"> 
+			<!-- <div class="pin"> 
 
 				<img src="http://techcircle.vccircle.com/wp-content/uploads/2013/05/Pallav-Pandey.jpg" class="pin-image"/> 
 
@@ -210,7 +210,7 @@
 
 				</tr> </table> </p>
 
-			</div>			
+			</div> -->			
 
 			</div>  
 
@@ -235,54 +235,45 @@
 
 		// get the interesting pins and display them on the website
 
-		$(document).ready(function() {
+		// $(document).ready(function() {
 
-			var data; 		
+		// 	var data; 		
 
-			data = [
+		// 	for(d in data) {
 
-				{image_large_url: 'http://techcircle.vccircle.com/wp-content/uploads/2013/05/Pallav-Pandey.jpg'}, 
-				{image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'},
-				{image_large_url: 'http://shirtoid.com/wp-content/uploads/2010/03/interesting.jpg' }, 
-				{image_large_url: 'http://imgs.xkcd.com/comics/interesting_life.png' },
-				{image_large_url: 'http://www.fullhdwpp.com/wp-content/uploads/Interesting-Parallels.jpg' },
-				{image_large_url: 'http://prinyourpajamas.com/wp-content/uploads/2010/12/twitter-sashaw-flickr.jpg' },
-				{image_large_url: 'http://blog.logmycalls.com/Portals/155740/images/interesting-call-tracking.jpeg' },
-				{image_large_url: 'http://robonwriting.com/wp-content/uploads/2013/07/true-and-interesting_50291543a9b43.jpg' }
+		// 		$html_pin = '<div class="pin"> <img class="pin-image" src="' + data[d].image_large_url + '" width="90%"/> <p class="pin-desc"> Test Description </p> </div>'
+		// 		// $html_pin = $html_pin + 				
 
+		// 		$('#content').append($html_pin);
 
-				];			
+		// 	}	
 
-			for(d in data) {
-
-				$html_pin = '<div class="pin"> <img class="pin-image" src="' + data[d].image_large_url + '" width="90%"/> <p class="pin-desc"> Test Description </p> </div>'
-				// $html_pin = $html_pin + 				
-
-				$('#content').append($html_pin);
-
-			}	
-
-		});
-
-		// $.ajax ({
-
-		// 	type: 'GET',
-		// 	url: '107.170.247.246:5000/user/me/pins', // TODO: get URL from Anirudh
-		// 	data: '', 
-		// 	success: function(data) { 
-
-		// 		data = [{image_large_url: 'http://srrvnn.com/images/github.jpg'}, {image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'}];
-
-		// 		for(d: data){
-
-		// 			$html_pin = '<div class="pin"> <img src="' + data[d].image_large_url + '" width="90%"/> </div>'
-		// 			// $html_pin = $html_pin + 
-
-		// 			$('.pins').append($html_pin);
-
-		// 		}				
-		// 	}              
 		// });
+
+		$.ajax ({
+
+			type: 'GET',
+			url: 'http://107.170.247.246:5000/user/me/pins', // TODO: get URL from Anirudh
+			data: '', 
+			success: function(data) { 				
+
+				for(d in data) {
+
+					$html_pin = '<div class="pin">';
+					$html_pin += '<img src="' + data[d].image_large_url + '" class="pin-image"/>';
+					$html_pin += '<p class="pin-desc">' + data[d].description + '"</p>';
+					$html_pin += '<p class="pin-credit"> <table> <tr>';
+					$html_pin += '<td rowspan="2"> <img src="images/test.png" width="30px" style="margin: 10px;"/> </td>';
+					$html_pin += '<td style="vertical-align: top; padding-top: 10px;"> '
+					$html_pin += '<span style="font-size: 12px; margin-top: 10px;"> Saravanan Ganesh </span> <br/>'
+					$html_pin += '<span style="font-size: 11px; margin-top: 10px"> Inspirational and Motivational </span> </td>';
+					$html_pin += '</tr> </table> </p> </div';
+				
+					$('.pins').append($html_pin);
+
+				}				
+			}              
+		});
 
 		</script>
 
