@@ -10,9 +10,10 @@ def welcome():
 @app.route('/user/me/pins',methods=['GET'])
 def userretailpins():
     USER_SECRET = "MTQzNTgwODo0OTUxODUwNTg5MzY2Njg0NzM6MnwxMzkwNjY5MzAzOjAtLTIwMTEzMGVhMzYyYzM1NTEyZTA1NjJlNGZiYTJjMTBiN2RhMmEwZjU="
-    results = UserInfo.getUserRetailPins(USER_SECRET)
+    user_id = '495185058936668473'
+    results = UserInfo.getUserRetailPins(USER_SECRET,user_id)
     return "ok"
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
