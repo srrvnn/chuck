@@ -253,9 +253,15 @@
 	<!-- COMPUTE INTERESTING PINS -->
 	<script type="text/javascript">		
 
-		setTimeout(function() {sendAJAXRequest()}, 1000);	// TIMEOUT TO TEST LOADER GIF
+		// setTimeout(function() {sendAJAXRequest()}, 1000);	// TIMEOUT TO TEST LOADER GIF
 
-		// sendAJAXRequest();
+		sendAJAXRequest();
+
+		// setting owners, boards and discounts temporarily, can be obtained from the JSON on the way out
+
+		var owners = ['Nordstrom.com','Bloomingdale','Bloomingdale'];
+		var boards = ['Style','Fashion','Design'];
+		var discounts = ['28%','45%','70%'];
 
 		// get the interesting pins and display them on the website			
 
@@ -272,15 +278,17 @@
 
 				for(d in data) {
 
+					var index = d % 3
+
 					$html_pin = '<div class="pin">';					
 					$html_pin += '<img src="' + data[d].image_large_url + '" class="pin-image"/>';
 					$html_pin += '<p class="pin-desc">' + data[d].description + '</p>';
 					$html_pin += '<p class="pin-credit"> <table> <tr>';
 					$html_pin += '<td rowspan="2"> <img src="images/test.png" width="30px" style="margin: 10px;"/> </td>';
-					$html_pin += '<td style="vertical-align: top; padding-top: 10px;"> '
-					$html_pin += '<span style="font-size: 12px; margin-top: 10px;"> Saravanan Ganesh </span> <br/>'
-					$html_pin += '<span style="font-size: 11px; margin-top: 10px"> Inspirational and Motivational </span> </td>';
-					$html_pin += '<td rowspan="2" style="vertical-align: middle"> <span style="background: #ccc; border-radius: 30px; padding: 8px; margin-left: 15px"> 70% </span> </td>';
+					$html_pin += '<td style="vertical-align: top; padding-top: 10px; width:58%"> '
+					$html_pin += '<span style="font-size: 12px; margin-top: 10px;"> '+ owners[index] +' </span> <br/>'
+					$html_pin += '<span style="font-size: 11px; margin-top: 10px"> '+ boards[index] +' </span> </td>';
+					$html_pin += '<td rowspan="2" style="vertical-align: middle"> <span style="background: #ccc; border-radius: 30px; padding: 8px; margin-left: 15px"> '+ discounts[index] +' </span> </td>';
 					$html_pin += '</tr> </table> </p> </div';
 					
 				
