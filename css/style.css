@@ -68,18 +68,8 @@ a:hover {
 
 /* SPECIFIC ELEMENTS */
 
-.stage {
-
-	min-height: 75%;
-	height: 90%;
-}
-
-.homebuttons {
-
-	text-align: center;		
-}
-
-.homebuttons a {
+#footer a {
 
 	margin-left: 4%;
+	margin-top: 10px;
 }
