@@ -97,7 +97,10 @@
 
 				<img class="pin-image" />
 
-				<div>
+							
+
+			</div>
+			<div>
 
 					<form id="addinfo" style="display: none; margin-top:10px;">
 
@@ -112,20 +115,36 @@
 
 						<div class="col-xs-12">
 							<input type="text-area" class="form-control" id="desc" placeholder="Description">
-						</div>					
+						</div>
+
+						<label for="askp" class="col-xs-12 control-label" style="padding:10px;padding-left:25px;text-align:left;">Asking Price: </label>
+
+						<div class="col-xs-12">
+							<input type="text-area" class="form-control" id="desc" placeholder="$">
+						</div>
+						
+						<label for="askd" class="col-xs-12 control-label" style="padding: 10px; padding-left: 25px;text-align:left;">Target Purchase Date: </label>
+
+						<div class="col-xs-12">
+							<input type="text-area" class="form-control" id="desc" placeholder="01/01/2014">
+						</div>
 
 						<!-- Board      : <input type="text" name="board"><br>
 						Description: <input type="text" name="desc"><br> -->
 
 						<div class="col-xs-12" style="text-align:left">							
-							<input class="pinit" type="submit" value="Pin It" style="margin: 15px; font-size: 16px">
+							<input id="save" class="pinit" type="submit" value="Pin It" style="margin: 15px; font-size: 16px">
+							<div id="save-modal" class="modal-dialog">
+								<div>
+								  <a href="#close" title="Close" class="close">X</a>
+								  <p>You pin has been uploaded!</p>
+								</div>
+							</div>
 						</div>
 
 					</form>
 
-				</div>				
-
-			</div>
+				</div>	
 
 		</section>				
 
@@ -182,6 +201,16 @@
 			  if ($("img",this).attr("src")) {addPhoto($("img", this).data("name")); $("#addinfo").show();}
 		   });
 		});
+		/*modal pop up*/
+		$("#save").click(function () {
+            $('#save-modal').addClass("show"); 
+		});    
+    
+		$(".modal-dialog .close").click(function(){
+		    $(this).closest(".modal-dialog").removeClass("show");
+			 window.location.reload(true);
+		});
+
 
 		</script>
 
