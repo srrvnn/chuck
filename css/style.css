@@ -178,3 +178,9 @@ modal-dialog h2 {
 }
 
 .close:hover { background: #00d9ff; }
+
+.about p {
+
+	line-height: 20px;
+	padding: 10px 5px ;
+}

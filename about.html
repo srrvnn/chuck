@@ -14,7 +14,6 @@
 	<meta name="description" content="Get your pins to your cart">
 	<meta name="keywords" content="pinterest buying retailers">
 	<meta name="author" content="Saravanan Ganesh, srrvnn@live.com">
-	<meta name="author" content="Pallav Rustogi, pallav.rustogi@gmail.com">
 	<meta charset="UTF-8">
 
 	<link rel="shortcut icon" HREF="images/icons/favicon.png">
@@ -31,7 +30,7 @@
 		}
 
 	</style>
-	
+
 	<!-- STYLE SHEETS -->
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />    
 	<link href="css/style.css" rel="stylesheet" type="text/css" />     	
@@ -42,8 +41,6 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>    
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
-	
 
 </head>
 
@@ -66,9 +63,9 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html">All Deals</a></li>
+						<li class="active"><a href="#">All Deals</a></li>
 						<li><a href="#about">Local Deals</a></li>
-						<li class="active"><a href="#">Upload a Pin</a></li>
+						<li><a href="newpin.html">Upload a Pin</a></li>
 						<li><a href="about.html">About</a></li>
 						<!-- <li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -88,67 +85,30 @@
 
 			</div>
 
-		<div class="container" style="text-align:center; padding-top: 60px">			
+		<div class="container about" style="text-align:left; padding-top: 60px;">		
 
-		<section class="entry">			
+				<p> The internet throws adds at you. <br/> With <i> Pinterest </i> catch only what you want. </p>
 
-			<input type="file" accept="image/*;capture=camera" style="padding-bottom: 10px"> 
+				<p> 'Own your Pins' was created to explore ad consumption, and customer specific discounts on <a href="http://pinterest.com">Pinterest.com</a></p>
 
-			<div class="latest">				
+				<p> Here is what we can do: <br/> 					
 
-				<img class="pin-image" />
+					1. Filter your 'buy worthy' pins. <br/>
 
-							
+					2. Setup a callback when the price drops to a point. <br/>
 
-			</div>
-			<div>
+					3. Add pins of objects you find in the wild. (read stores) <br/>
+					
+					</p>
 
-					<form id="addinfo" style="display: none; margin-top:10px;">
+				<p style="text-align: left;"> Here's our <a href="http://sdrv.ms/19VXraa">Pitch at HackTECH</a></p>
+				<p style="text-align: padding-top: 0px; padding: 5px"> bingo, <a href="http://anirudh.co.in">orderof1</a>, <a href="www-scf.usc.edu/~rustogi">pallav</a>, <a href="http://srrvnn.com">srrvnn</a> </p>
 
-						
-						<label for="board" class="col-xs-2 control-label" style="padding: 10px; padding-left: 25px;">Board:</label>
+			</div> 
 
-						<div class="col-xs-12">
-							<input type="text" class="form-control" id="board" placeholder="To Buy">
-						</div>						
-						
-						<label for="desc" class="col-xs-2 control-label" style="padding: 10px; padding-left: 25px;">Description: </label>
+		</div>
 
-						<div class="col-xs-12">
-							<input type="text-area" class="form-control" id="desc" placeholder="Description">
-						</div>
-
-						<label for="askp" class="col-xs-12 control-label" style="padding:10px;padding-left:25px;text-align:left;">Tell me when the price reaches: </label>
-
-						<div class="col-xs-12">
-							<input type="text-area" class="form-control" id="desc" placeholder="$">
-						</div>
-						
-						<label for="askd" class="col-xs-12 control-label" style="padding: 10px; padding-left: 25px;text-align:left;">Remind me to look at this again on: </label>
-
-						<div class="col-xs-12">
-							<input type="text-area" class="form-control" id="desc" placeholder="01/01/2014">
-						</div>						
-
-						<div class="col-xs-12" style="text-align:left">							
-							<input id="save" class="pinit" type="submit" value="Pin It" style="margin: 15px; font-size: 16px">
-							<div id="save-modal" class="modal-dialog">
-								<div>
-								  <a href="#close" title="Close" class="close">X</a>
-								  <p>You pin has been uploaded!</p>
-								</div>
-							</div>
-						</div>
-
-					</form>
-
-				</div>	
-
-		</section>				
-
-		</div>  
-
-	</div>
+	</div>		
 
 	<div id="footer">
 
@@ -164,54 +124,7 @@
 	<!-- BOOTSTRAP JS -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<!-- CAPTURE A PICTURE -->
-	<script type="text/javascript">
 	
-		/********** CAPTURE  **********/
-
-		$(function() {
-
-		  $("input").change(function(ev) {
-
-			var reader = new FileReader();
-
-			reader.onload = (function(ev) {
-
-			  $(".latest img").attr("src", ev.target.result).fadeIn();
-
-			});
-
-			var file = this.files[0];
-			$(".latest img").data("name", file.name);
-			reader.readAsDataURL(file);
-			$("#addinfo").show();
-		  });
-
-		  $(".latest")
-		  /*
-			.click(function() {
-			  if ($("img",this).attr("src")) $(".menu", this).show();
-			}, function() {
-			  $(".menu", this).hide();
-			})
-		  */
-		  .click(function() {
-			  if ($("img",this).attr("src")) {addPhoto($("img", this).data("name")); $("#addinfo").show();}
-		   });
-		});
-		/*modal pop up*/
-		$("#save").click(function () {
-            $('#save-modal').addClass("show"); 
-		});    
-    
-		$(".modal-dialog .close").click(function(){
-		    $(this).closest(".modal-dialog").removeClass("show");
-			 window.location.reload(true);
-		});
-
-
-		</script>
-
 	<!-- GOOGLE ANALYTICS SCRIPT --> 
 	<script type="text/javascript">
 
