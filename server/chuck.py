@@ -17,12 +17,13 @@ def update():
     return 'ok'
 
 
-@app.route('/user/me/pins',methods=['GET'])
+@app.route('/user/me/pins',methods=['GET','OPTIONS'])
+@crossdomain(origin='*')
 def userretailpins():
     USER_SECRET = "MTQzNTgwODo0OTUxODUwNTg5MzY2Njg0NzM6MnwxMzkwNjY5MzAzOjAtLTIwMTEzMGVhMzYyYzM1NTEyZTA1NjJlNGZiYTJjMTBiN2RhMmEwZjU="
     user_id = '495185058936668473'
     results = UserInfo.getUserRetailPins(USER_SECRET,user_id)
-    return Response(json.dumps(results),mimetype='application/json')
+    return Response(json.dumps(results),mimetype='application/json',)
 
 
 if __name__ == '__main__':
