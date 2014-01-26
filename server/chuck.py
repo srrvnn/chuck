@@ -11,7 +11,7 @@ app = Flask(__name__)
 def welcome():
     return 'Welcome to Chuck!'
   
-@app.route('/update')
+@app.route('/update',methods=['GET','POST'])
 def update():
     os.system('git pull')
     return 'ok'
