@@ -27,9 +27,6 @@ def getUserRetailPins(USER_SECRET,user_id):
 	    pin['origin_pin']['image_small_url'] = origin_pinner_data['image_small_url']
 	    pin['origin_pin']['profile_link'] = 'http://pinterest.com/'+origin_pinner_data['username']
 	    ret.append(pin)
-	else:
-	    #print 'out: '
-	    #print pin['origin_pin']
     return ret
 
 def getUserDetails(user_id):
