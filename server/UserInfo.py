@@ -19,7 +19,8 @@ def getUserRetailPins(USER_SECRET,user_id):
     for pin in userpins:
 	if 'origin_pin' in pin.keys() and pin['origin_pin']!=None and 'id' in pin['origin_pin'].keys() and pin['origin_pin']['id'] in retail_pins.keys():
 	    ret.append(pin)
-    print 'hi\n'+ret
+    print 'hi\n'
+    print ret
     return ret
   
 def getUserPins(USER_SECRET,user_id):
