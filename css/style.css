@@ -16,6 +16,8 @@ html, body {
 
 	font-family: "Royal_Chicken" !important;
 	color: rgb(203,32,39) !important; 
+	
+	font-size: 54px;
 }
 
 .container {
@@ -112,3 +114,4 @@ a:hover {
 	font-size: 11px;
 	border-top: 1px solid rgb(231, 231, 231)
 }
+
