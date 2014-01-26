@@ -24,33 +24,45 @@
 	<!-- STYLE SHEETS -->
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />    
 	<link href="css/style.css" rel="stylesheet" type="text/css" />     
+	<link href="css/sticky-footer.css" rel="stylesheet" type="text/css" />     
 
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>    
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
+	<style type="text/css"> 
+
+		/*.item { width: 25%; }*/
+		/*.item.w2 { width: 50%; }*/
+
+	</style>
+
 </head>
 
 <body>
 
-	<div class="starter" style="height: 1%; background: #505050"> 
+	<!-- <div class="starter" style="height: 1%; background: #505050">  -->
 
-	</div>  
+	<!-- </div>   -->
 
-	<div class="container">		
+	<div id="wrap">				
 
-		<div class="row stage">
+		<div class="row container">		
 
-		</div>
 
-		<div class="row homebuttons">
-
-		<a class="btn btn-default col-xs-offset-1 col-xs-4" href="#" role="button">See Deals</a>
-		<a class="btn btn-default col-xs-3" href="#" role="button">Local</a>
-		<a class="btn btn-default col-xs-3" href="#" role="button">Pin</a>
 		
 		</div>
 
+	</div>
+
+	<div id="footer">
+
+		<div class="row buttons">
+
+			<a class="btn btn-default col-xs-offset-1 col-xs-4" href="#" role="button">See Deals</a>
+			<a class="btn btn-default col-xs-3" href="#" role="button">Local</a>
+			<a class="btn btn-default col-xs-3" href="#" role="button">Pin</a>
+		</div>	
 	</div>
 
 	<!-- jQUERY -->
@@ -58,6 +70,63 @@
 
 	<!-- BOOTSTRAP JS -->
 	<script src="js/bootstrap.min.js"></script>
+
+	<!-- COMPUTE INTERESTING PINS -->
+	<script type="text/javascript">
+
+		// get the interesting pins and display them on the website
+
+		$(document).ready(function() {
+
+			var data = [{image_large_url: 'http://techcircle.vccircle.com/wp-content/uploads/2013/05/Pallav-Pandey.jpg'}, {image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'}, { image_large_url: 'http://shirtoid.com/wp-content/uploads/2010/03/interesting.jpg' }, { image_large_url: 'http://imgs.xkcd.com/comics/interesting_life.png' }, { image_large_url: 'http://www.fullhdwpp.com/wp-content/uploads/Interesting-Parallels.jpg' }, { image_large_url: 'http://prinyourpajamas.com/wp-content/uploads/2010/12/twitter-sashaw-flickr.jpg' }, { image_large_url: 'http://blog.logmycalls.com/Portals/155740/images/interesting-call-tracking.jpeg' }, { image_large_url: 'http://robonwriting.com/wp-content/uploads/2013/07/true-and-interesting_50291543a9b43.jpg' }];			
+
+			for(d in data) {
+
+				$html_pin = '<span class="pin"> <img src="' + data[d].image_large_url + '" width="45%"/> </span>'
+				// $html_pin = $html_pin + 				
+
+				$('.container').append($html_pin);
+
+			}	
+
+		});
+
+		// $.ajax ({
+
+		// 	type: 'GET',
+		// 	url: '/users_me_pins', // TODO: get URL from Anirudh
+		// 	data: '', 
+		// 	success: function(data) { 
+
+		// 		data = [{image_large_url: 'http://srrvnn.com/images/github.jpg'}, {image_large_url: 'http://www.ithappensinindia.com/wp-content/uploads/2011/12/Anirudh-RaviChander.jpg'}];
+
+		// 		for(d: data){
+
+		// 			$html_pin = '<img href="' + d.image_large_url + '" />'
+		// 			// $html_pin = $html_pin + 
+
+		// 			$('.pins').append($html_pin);
+
+		// 		}				
+		// 	}              
+		// });
+
+		</script>
+
+	<!-- MASONRY -->
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script type="text/javascript">
+
+		var container = document.querySelector('#container');
+
+		var msnry = new Masonry( container, {
+
+			// options
+  			columnWidth: 100,
+  			itemSelector: '.pin'
+		});	
+
+		</script>	
 
 	<!-- GOOGLE ANALYTICS SCRIPT --> 
 	<script type="text/javascript">
