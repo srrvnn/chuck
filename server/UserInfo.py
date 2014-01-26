@@ -7,7 +7,7 @@ APP_ID = "1435808"
 
 def getUserRetailPins(USER_SECRET,user_id):
     userpins = getUserPins(USER_SECRET,user_id)
-    client = pymongo.MongoClient('107.170.247.246', 27017)
+    client = MongoClient('107.170.247.246', 27017)
     records = client['chuck']['retailers'].find()
     retail_pins = {}
     for record in records:
