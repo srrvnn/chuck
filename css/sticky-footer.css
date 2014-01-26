@@ -34,5 +34,6 @@ body {
   padding: 0 15px;
 }
 .container .text-muted {
+  text-align: center;
   margin: 20px 0;
 }
