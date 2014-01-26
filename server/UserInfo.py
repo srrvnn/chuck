@@ -21,7 +21,8 @@ def getUserRetailPins(USER_SECRET,user_id):
 	    print 'in: '+pin['origin_pin']['id']
 	    ret.append(pin)
 	else:
-	    print 'out: '+pin['origin_pin']
+	    print 'out: '
+	    print pin['origin_pin']
     return ret
   
 def getUserPins(USER_SECRET,user_id):
